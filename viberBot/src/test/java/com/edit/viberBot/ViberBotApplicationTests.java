@@ -1,4 +1,4 @@
-package Team2.carBot2share.demo;
+package com.edit.viberBot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CarBot2shareApplicationTests {
+public class ViberBotApplicationTests {
 
 	@Test
 	public void contextLoads() {

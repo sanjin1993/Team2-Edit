@@ -1,17 +1,17 @@
-package Team2.carBot2share.demo.model;
-
+package com.edit.viberBot.model;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.util.List;
-import java.util.Set;
 import javax.persistence.*;
+import javax.websocket.OnError;
+import java.util.List;
 
 @Entity
-@Table(name = "User")
+@Table(name = "Users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private int Id;
 
     @Column(name = "ViberId")
@@ -23,13 +23,30 @@ public class User {
     @Column(name = "Subscribed")
     private boolean Subscribed;
 
+   /* @OneToMany(mappedBy = "user" )
+    List<Reservation> reservations;*/
+
+    public boolean isSubscribed() {
+        return Subscribed;
+    }
+
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id" , referencedColumnName = "user_id")
+    private List<Reservation> reservationList;
 
 
+    public User()
+    {
 
-public User()
-{
-
-}
+    }
     public User(int ViberId , String name , boolean Subsribed)
     {
         this.ViberId = ViberId;

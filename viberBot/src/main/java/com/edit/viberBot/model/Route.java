@@ -1,18 +1,18 @@
-package Team2.carBot2share.demo.model;
+package com.edit.viberBot.model;
 
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-
 @Entity
-@Table(name = "Route")
+@Table(name = "Routes")
 public class Route {
 
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @javax.persistence.Id
+    @Column(name = "route_id")
+    @Id
     private int Id;
 
     @Column(name = "Start")
@@ -30,7 +30,20 @@ public class Route {
     @Column(name = "AvailableSeats")
     private int AvailableSeats;
 
+ /*   @OneToMany(mappedBy = "route")
+    List<Reservation> reservations;*/
 
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "route_id" , referencedColumnName = "route_id")
+    private List<Reservation> reservationList;
 
     public int getId() {
         return Id;
