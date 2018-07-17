@@ -1,6 +1,8 @@
 package com.edit.viberBot.model;
 
 import javax.persistence.*;
+import java.sql.Time;
+import java.util.Date;
 
 
 @Entity
@@ -10,40 +12,42 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "reservation_id")
-    private int Id;
+    private int id;
 
-  /* @ManyToOne
-    @JoinColumn(name = "RouteId")
-    private int RouteId;
+   @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "route_id")
+   Route route;
+
     /* Route route;*/
+   /* @Column(name="RouteId")
+    private int route_id;*/
 
     @Column(name = "ReservedSeats")
-    private boolean ReservedSeats;
+    private int reservedSeats;
 
-    /*@ManyToOne
-    @JoinColumn(name = "UserId")
-    private int UserId;
-   /* User user;*/
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    User user;
 
-    public int getUser_id() {
-        return user_id;
+    public Reservation()
+    {
+
+    }
+    public Reservation(Route route, int reservedSeats, User user) {
+        this.route = route;
+        this.reservedSeats = reservedSeats;
+        this.user = user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    private int user_id;
-
-    public int getRoute_id() {
+    /*public int getRoute_id() {
         return route_id;
     }
 
     public void setRoute_id(int route_id) {
         this.route_id = route_id;
     }
+*/
 
-    private int route_id;
     /*@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id" , referencedColumnName = "user_id")
     private User users;*/
@@ -54,37 +58,38 @@ public class Reservation {
 
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 
-    public boolean isReservedSeats() {
-        return ReservedSeats;
+    public int getReservedSeats() {
+        return reservedSeats;
     }
 
-    public void setReservedSeats(boolean reservedSeats) {
-        ReservedSeats = reservedSeats;
+    public void setReservedSeats(int reservedSeats) {
+        this.reservedSeats = reservedSeats;
     }
 
 
-   /* public int getUserId() {
-        return UserId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        UserId = userId;
-    }*/
-
-
-    /*public int getRouteId() {
-        return RouteId;
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public Route getRoute()
+    {
+        return route;
+    }
+    public void setRoute(Route route)
+    {
+        this.route=route;
     }
 
-    public void setRouteId(int routeId) {
-        RouteId = routeId;
-    }*/
+
 
 }

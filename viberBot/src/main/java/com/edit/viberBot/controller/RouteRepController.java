@@ -4,6 +4,7 @@ import com.edit.viberBot.model.Route;
 import com.edit.viberBot.model.User;
 import com.edit.viberBot.repository.RouteRep;
 import com.edit.viberBot.repository.UserRep;
+import com.edit.viberBot.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,14 +23,19 @@ import java.util.Date;
 
 @Controller
 public class RouteRepController {
+
     @Autowired
     RouteRep repository;
 
+<<<<<<< HEAD
     @RequestMapping(value = "/home", method = RequestMethod.GET)
+=======
+    /*@RequestMapping(value = "/", method = RequestMethod.GET)
+>>>>>>> 4ee1dc3e939caca2167e14756a808ed43e8a1fbc
     public String Home()
     {
         return "Home";
-    }
+    }*/
 
 
     @RequestMapping(value = "/save", method = RequestMethod.GET)
@@ -51,7 +57,7 @@ public class RouteRepController {
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public String FindAll(Model model) {
+    public String findAll(Model model) {
         model.addAttribute("routes", repository.findAll());
         return "Routes";
     }
@@ -79,14 +85,31 @@ public class RouteRepController {
         return "Edit";
     }
 
-    @RequestMapping(value = "/snimi" , method = RequestMethod.PUT)
-    public RedirectView  snimi(Model model) {
+    @RequestMapping(value = "/dodaj" , method = RequestMethod.GET)
+    public String  addRoute() {
+        return "Dodaj";
+    }
 
+    @RequestMapping(value = "/snimiEdit/{id}" , method = RequestMethod.POST)
+    public RedirectView  snimiEdit(@PathVariable("id") int Id ,@RequestParam("start") String start ,@RequestParam("destination") String destination ,@RequestParam("date") String date ,@RequestParam("time") Time time ,@RequestParam("availableSeats") int availableseasts) {
+
+        Route route = repository.findById(Id);
+        Date dateToEdit = new Date(date);
+        RouteService rs = new RouteService();
+
+        route.setStart(start);
+        route.setDestination(destination);
+        route.setDate(dateToEdit);
+        route.setTime(time);
+        route.setAvailableSeats(availableseasts);
+
+        rs.save(route);
 
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("http://localhost:8090/findAll");
         return redirectView;
     }
+
 }
 
 

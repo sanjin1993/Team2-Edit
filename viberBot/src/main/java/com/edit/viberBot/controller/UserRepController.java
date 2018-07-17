@@ -17,6 +17,7 @@ public class UserRepController {
     UserRep repository;
 
 
+<<<<<<< HEAD
 
 
    // @RequestMapping(value= "find", method = RequestMethod.GET)
@@ -61,17 +62,26 @@ public class UserRepController {
 
 
    /* @RequestMapping(value = "/save", method = RequestMethod.GET)
+=======
+   /*@RequestMapping(value = "/save", method = RequestMethod.GET)
+>>>>>>> 4ee1dc3e939caca2167e14756a808ed43e8a1fbc
     public String Process() {
         repository.save(new User("1", "Jack", false));
-        repository.save(new User("2", "JackDaniles", true));
         repository.save(new User("3", "CaptenMorgan", true));
 
-        return "test";
-    }*/
+        return "Users";
+    }
 
-   /* @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public String FindAll(Model model) {
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public String findAll(Model model) {
         model.addAttribute("users", repository.findAll());
+<<<<<<< HEAD
         return "users";
     }*/
 
+=======
+        return "Users";
+    }
+*/
+}
+>>>>>>> 4ee1dc3e939caca2167e14756a808ed43e8a1fbc
