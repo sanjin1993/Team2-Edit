@@ -10,6 +10,8 @@
 <table class="table table-bordered">
     <thead>
     <tr>
+
+        <th>ViberID</th>
         <th>Name</th>
         <th>Subscribed</th>
     </tr>
@@ -19,6 +21,7 @@
     <br>
     <thblock th:each="user : ${users}">
         <tr>
+            <td th:text="$(user.viberId)">...</td>
             <td th:text="${user.name}">...</td>
             <td th:text="${user.subscribed}">...</td>
         </tr>

@@ -17,6 +17,49 @@ public class UserRepController {
     UserRep repository;
 
 
+
+
+   // @RequestMapping(value= "find", method = RequestMethod.GET)
+   // public String Find() {}
+
+
+    /*@RequestMapping(value= "add", method = RequestMethod.GET)
+    public String Add(User User) {
+
+        repository.add(new User("1", "Jack", false));
+        repository.add(new User("2", "JackDaniles", true));
+        repository.add(new User("3", "CaptenMorgan", true));
+
+        return "Users";
+    }*/
+
+
+
+    /*@RequestMapping(value= "subscribe", method = RequestMethod.POST)
+    public String Subscribe() {
+        User.something.onRendered(function() {
+            var self = this;
+            self.subscribe("name", function() {
+                self.autorun(function() {
+                    var thing = Collection.findOne(); // some reactive operation
+                    // do fun stuff with thing
+                });
+            });
+    }
+*/
+
+
+    //@RequestMapping(value= "unsubscribe", method = RequestMethod.POST)
+    //public String Unsubscribe() {}
+
+
+}
+
+
+
+
+
+
    /* @RequestMapping(value = "/save", method = RequestMethod.GET)
     public String Process() {
         repository.save(new User("1", "Jack", false));
@@ -31,4 +74,4 @@ public class UserRepController {
         model.addAttribute("users", repository.findAll());
         return "users";
     }*/
-}
+

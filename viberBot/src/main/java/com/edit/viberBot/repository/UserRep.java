@@ -10,6 +10,8 @@ import java.util.List;
 
 @Repository
 public interface UserRep extends JpaRepository<User,Long> {
-    public User findByViberId(String viberId);
-    public List<User> findAll();
+    User findByViberId(String viberId);
+    List<User> findAll();
+
+    //void add(User captenMorgan);
 }

@@ -25,7 +25,7 @@ public class RouteRepController {
     @Autowired
     RouteRep repository;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String Home()
     {
         return "Home";
@@ -88,3 +88,5 @@ public class RouteRepController {
         return redirectView;
     }
 }
+
+
