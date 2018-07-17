@@ -17,18 +17,18 @@ public class UserRepController {
     UserRep repository;
 
 
-   /* @RequestMapping(value = "/save", method = RequestMethod.GET)
+   /*@RequestMapping(value = "/save", method = RequestMethod.GET)
     public String Process() {
         repository.save(new User("1", "Jack", false));
-        repository.save(new User("2", "JackDaniles", true));
         repository.save(new User("3", "CaptenMorgan", true));
 
-        return "test";
-    }*/
+        return "Users";
+    }
 
-   /* @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public String FindAll(Model model) {
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public String findAll(Model model) {
         model.addAttribute("users", repository.findAll());
-        return "users";
-    }*/
+        return "Users";
+    }
+*/
 }

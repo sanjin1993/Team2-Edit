@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Reservation ID</th>
+            <th>User ID</th>
+            <th>Route ID</th>
+            <th>Reserved seats</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <br>
+        <br>
+        <thblock th:each="reservation : ${reservations}">
+            <tr>
+                <td th:text="${reservation.id}">...</td>
+                <td th:text="${reservation.user}">...</td>
+                <td th:text="${reservation.route}">...</td>
+                <td th:text="${reservation.reservedSeats}">...</td>
+                <td>
+                    <a class="btn btn-danger" th:href="@{/delete/{id}(id=${reservation.id})}">Delete </a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/edit/{id}(id=${reservation.id})}">Edit</a>
+                </td>
+        </thblock>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

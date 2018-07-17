@@ -12,7 +12,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private int Id;
+    private int id;
 
     @Column(name = "viberId")
     private String viberId;
@@ -23,23 +23,8 @@ public class User {
     @Column(name = "Subscribed")
     private boolean subscribed;
 
-   /* @OneToMany(mappedBy = "user" )
-    List<Reservation> reservations;*/
 
-    public boolean isSubscribed() {
-        return subscribed;
-    }
-
-    public List<Reservation> getReservationList() {
-        return reservationList;
-    }
-
-    public void setReservationList(List<Reservation> reservationList) {
-        this.reservationList = reservationList;
-    }
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id" , referencedColumnName = "user_id")
+    @OneToMany(mappedBy="user")
     private List<Reservation> reservationList;
 
 
@@ -81,12 +66,23 @@ public class User {
     }
 
 
+    public boolean isSubscribed() {
+        return subscribed;
+    }
+
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRep extends JpaRepository<User,Long> {
+public interface UserRep extends CrudRepository<User,Long> {
     public User findByViberId(String viberId);
     public List<User> findAll();
 }

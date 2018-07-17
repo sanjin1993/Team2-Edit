@@ -29,6 +29,8 @@ public class Route {
     @Column(name = "AvailableSeats")
     private int availableSeats;
 
+    @OneToMany(mappedBy = "route")
+    private List<Reservation> reservationList;
 
     public Route(String sta , String dest , Date dat , Time tim , int availableSeat)
     {
@@ -53,9 +55,9 @@ public class Route {
         this.reservationList = reservationList;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "route_id" , referencedColumnName = "route_id")
-    private List<Reservation> reservationList;
+    private List<Reservation> reservationList;*/
 
     public int getId() {
         return id;

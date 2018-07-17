@@ -16,7 +16,7 @@
             <th>Date</th>
             <th>Time</th>
             <th>Available Seats</th>
-            <th>Obrisi</th>
+            <th>Delete</th>
             <th>Edit</th>
         </tr>
         </thead>
@@ -35,11 +35,12 @@
                     <a class="btn btn-danger" th:href="@{/delete/{id}(id=${route.Id})}">Delete </a>
                 </td>
                 <td>
-                    <button class="btn btn-primary" th:href="@{/edit/{id}(id=${route.Id})}">Edit</button>
+                    <a class="btn btn-primary" th:href="@{/edit/{id}(id=${route.Id})}">Edit</a>
                 </td>
         </thblock>
         </tbody>
     </table>
+    <a class="btn btn-default" th:href="@{/dodaj}">Dodaj</a>
 </div>
 </body>
 </html>
