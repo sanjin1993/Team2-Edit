@@ -27,9 +27,14 @@ public class RouteRepController {
     @Autowired
     RouteRep repository;
 
+<<<<<<< HEAD
 
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
+=======
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+
+>>>>>>> e1715571d9d0df6d0dfaafc218249bdf0f3db28e
     public String Home()
     {
         return "Home";
