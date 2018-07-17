@@ -7,8 +7,11 @@ import com.edit.viberBot.repository.UserRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.sql.Time;
 import java.time.LocalDate;
@@ -22,21 +25,66 @@ public class RouteRepController {
     @Autowired
     RouteRep repository;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String Home()
+    {
+        return "Home";
+    }
+
+
     @RequestMapping(value = "/save", method = RequestMethod.GET)
-    public String SaveRoutes() {
+    public RedirectView SaveRoutes() {
         LocalDate d =  LocalDate.now();
         LocalTime t = LocalTime.now();
         Date date = Date.from(d.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         Time time = new Time(t.getHour(), t.getMinute(), t.getSecond());
 
-        repository.save(new Route("pozicija5","pozicija6",date,time,12));
+        repository.save(new Route("pozicija5","pozicija61",date,time,12));
+        repository.save(new Route("pozicija51","pozicija26",date,time,12));
+        repository.save(new Route("pozicija15","pozicija36",date,time,12));
+        repository.save(new Route("pozicija25","pozicija46",date,time,12));
+        repository.save(new Route("pozicija35","pozicija116",date,time,12));
 
-        return "test2";
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:8090/findAll");
+        return redirectView;
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public String FindAll(Model model) {
         model.addAttribute("routes", repository.findAll());
         return "Routes";
+    }
+
+    @RequestMapping(value="/findRouteById/{id}" , method = RequestMethod.GET)
+    public String findRouteById(@PathVariable("id") int Id, Model model) {
+        model.addAttribute("model", repository.findById(Id));
+        return "Route";
+    }
+
+    @RequestMapping(value = "/delete/{id}")
+    public RedirectView  deleteRoute(@PathVariable("id") int Id) {
+
+        Route r = repository.findById(Id);
+        repository.delete(r);
+
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:8090/findAll");
+        return redirectView;
+}
+
+    @RequestMapping(value = "/edit/{id}" , method = RequestMethod.GET)
+    public String  editRoute(@PathVariable("id") int Id , Model model) {
+        model.addAttribute("model", repository.findById(Id));
+        return "Edit";
+    }
+
+    @RequestMapping(value = "/snimi" , method = RequestMethod.PUT)
+    public RedirectView  snimi(Model model) {
+
+
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:8090/findAll");
+        return redirectView;
     }
 }

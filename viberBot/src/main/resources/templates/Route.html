@@ -16,28 +16,19 @@
             <th>Date</th>
             <th>Time</th>
             <th>Available Seats</th>
-            <th>Obrisi</th>
-            <th>Edit</th>
         </tr>
         </thead>
         <tbody>
         <br>
         <br>
-        <thblock th:each="route : ${routes}">
             <tr>
-                <td th:text="${route.Id}">...</td>
-                <td th:text="${route.start}">...</td>
-                <td th:text="${route.destination}">...</td>
-                <td th:text="${route.date}">...</td>
-                <td th:text="${route.time}">...</td>
-                <td th:text="${route.availableSeats}">...</td>
-                <td>
-                    <a class="btn btn-danger" th:href="@{/delete/{id}(id=${route.Id})}">Delete </a>
-                </td>
-                <td>
-                    <button class="btn btn-primary" th:href="@{/edit/{id}(id=${route.Id})}">Edit</button>
-                </td>
-        </thblock>
+                <td th:text="${model.Id}">...</td>
+                <td th:text="${model.start}">...</td>
+                <td th:text="${model.destination}">...</td>
+                <td th:text="${model.date}">...</td>
+                <td th:text="${model.time}">...</td>
+                <td th:text="${model.availableSeats}">...</td>
+            </tr>
         </tbody>
     </table>
 </div>

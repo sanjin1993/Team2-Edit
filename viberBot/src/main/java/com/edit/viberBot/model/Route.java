@@ -12,7 +12,7 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "route_id")
     @Id
-    private int Id;
+    private int id;
 
     @Column(name = "Start")
     private String start;
@@ -58,11 +58,11 @@ public class Route {
     private List<Reservation> reservationList;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 
     public String getStart() {
