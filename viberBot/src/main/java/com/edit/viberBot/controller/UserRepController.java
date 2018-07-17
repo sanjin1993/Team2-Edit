@@ -17,7 +17,6 @@ public class UserRepController {
     UserRep repository;
 
 
-<<<<<<< HEAD
 
 
    // @RequestMapping(value= "find", method = RequestMethod.GET)
@@ -79,9 +78,4 @@ public class UserRepController {
         return "users";
     }*/
 
-=======
-        return "Users";
-    }
-*/
-}
->>>>>>> 4ee1dc3e939caca2167e14756a808ed43e8a1fbc
+

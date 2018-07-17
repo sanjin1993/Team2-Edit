@@ -13,27 +13,40 @@
 </head>
 <body>
 
-<div class="container center_div">
-    <form action="gdjeposlatipodatkenakonlogovanja.nesto" method="get">
+<div class="container">
+    <form name="loginForm" class="form-horizontal" role="form">
     <br> <br>
-    <div class="container">
-        <label for="name"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-    <br> <br> <br>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+    <div class="form-group">
+        <div class="col-sm-3">
+           <span class="block input-icon input-icon-right">
+               <label for="username">Username</label>
+                <input type="text" class="form-control" placeholder="Username" name="username" ng-model="login.username" required focus/>
+                <i class="ace-icon fa fa-user"></i>
+            </span>
+        </div>
+    <br>
+        <div class="form-group">
+            <div class="col-sm-3">
+           <span class="block input-icon input-icon-right">
+               <label for="password">Password</label>
+                <input type="text" class="form-control" placeholder="Password" ng-model="login.password" required/>
+                <i class="ace-icon fa fa-user"></i>
+            </span>
+            </div>
     <br> <br>
-        <button type="submit">Login</button>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
+            <div class="col-sm-7">
+                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">
+                    <i class="ace-icon fa fa-key"></i>
+                    Login
+                </button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
     </div>
     <br>
-        <span class="psw">Forgot <a href="#">password?</a></span>
 
-    </form>
+
+
 </div>
-
 
 </body>
 </html>
