@@ -9,27 +9,39 @@ import java.util.List;
 @Table(name = "Routes")
 public class Route {
 
-
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "route_id")
     @Id
     private int Id;
 
     @Column(name = "Start")
-    private String Start;
+    private String start;
 
     @Column(name = "Destination")
-    private String Destination ;
+    private String destination ;
 
     @Column(name = "Date")
-    private Date Date;
+    private Date date;
 
     @Column(name = "Time")
-    private Time Time;
+    private Time time;
 
     @Column(name = "AvailableSeats")
-    private int AvailableSeats;
+    private int availableSeats;
 
+
+    public Route(String sta , String dest , Date dat , Time tim , int availableSeat)
+    {
+        this.start = sta;
+        this.destination = dest;
+        this.date = dat;
+        this.time = tim;
+        this.availableSeats = availableSeat;
+    }
+    public Route()
+    {
+
+    }
  /*   @OneToMany(mappedBy = "route")
     List<Reservation> reservations;*/
 
@@ -54,43 +66,43 @@ public class Route {
     }
 
     public String getStart() {
-        return Start;
+        return start;
     }
 
     public void setStart(String start) {
-        Start = start;
+        start = start;
     }
 
     public String getDestination() {
-        return Destination;
+        return destination;
     }
 
     public void setDestination(String destination) {
-        Destination = destination;
+        destination = destination;
     }
 
     public java.util.Date getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(java.util.Date date) {
-        Date = date;
+        date = date;
     }
 
     public java.sql.Time getTime() {
-        return Time;
+        return time;
     }
 
     public void setTime(java.sql.Time time) {
-        Time = time;
+        time = time;
     }
 
     public int getAvailableSeats() {
-        return AvailableSeats;
+        return availableSeats;
     }
 
     public void setAvailableSeats(int availableSeats) {
-        AvailableSeats = availableSeats;
+        availableSeats = availableSeats;
     }
 
 }

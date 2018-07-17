@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Route Id</th>
+            <th>Start</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Available Seats</th>
+        </tr>
+        </thead>
+        <tbody>
+        <br>
+        <br>
+        <thblock th:each="route : ${routes}">
+            <tr>
+                <td th:text="${route.Id}">...</td>
+                <td th:text="${route.start}">...</td>
+                <td th:text="${route.destination}">...</td>
+                <td th:text="${route.date}">...</td>
+                <td th:text="${route.time}">...</td>
+                <td th:text="${route.availableSeats}">...</td>
+            </tr>
+        </thblock>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

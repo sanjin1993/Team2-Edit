@@ -14,20 +14,20 @@ public class User {
     @Column(name = "user_id")
     private int Id;
 
-    @Column(name = "ViberId")
-    private int ViberId;
+    @Column(name = "viberId")
+    private String viberId;
 
     @Column(name = "Name")
-    private String Name;
+    private String name;
 
     @Column(name = "Subscribed")
-    private boolean Subscribed;
+    private boolean subscribed;
 
    /* @OneToMany(mappedBy = "user" )
     List<Reservation> reservations;*/
 
     public boolean isSubscribed() {
-        return Subscribed;
+        return subscribed;
     }
 
     public List<Reservation> getReservationList() {
@@ -47,37 +47,37 @@ public class User {
     {
 
     }
-    public User(int ViberId , String name , boolean Subsribed)
+    public User(String viberId , String name , boolean Subsribed)
     {
-        this.ViberId = ViberId;
-        this.Name = name;
-        this.Subscribed = Subsribed;
+        this.viberId = viberId;
+        this.name = name;
+        this.subscribed = Subsribed;
     }
 
 
 
-    public int getViberId() {
-        return ViberId;
+    public String getViberId() {
+        return viberId;
     }
 
-    public void setViberId(int viberId) {
-        ViberId = viberId;
+    public void setViberId(String viberId) {
+        viberId = viberId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public boolean getSubscribed() {
-        return Subscribed;
+        return subscribed;
     }
 
     public void setSubscribed(boolean subscribed) {
-        Subscribed = subscribed;
+        subscribed = subscribed;
     }
 
 
